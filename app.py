@@ -21,10 +21,10 @@ st.set_page_config(page_title="App Bancaria", layout="wide")
 
 # Sidebar con widgets
 st.sidebar.title("Navegación")
-opcion = st.sidebar.selectbox("Selecciona un módulo:", ["Home", "Carga de Datos", "Análisis EDA"])
+opcion = st.sidebar.selectbox("Selecciona un módulo:", ["Modulo 1: Home", "Modulo 2: Carga de Datos", "Modulo 3: Análisis EDA"])
 
 # --- MÓDULO 1: HOME ---
-if opcion == "Home":
+if opcion == "Modulo 1: Home":
     st.title("📊 Proyecto: Análisis de Campaña BankMarketing")
     
     st.write("### 🎯 Objetivo del Análisis")
@@ -67,7 +67,7 @@ if opcion == "Home":
     """)
 
 # --- MÓDULO 2: CARGA ---
-elif opcion == "Carga de Datos":
+elif opcion == "Modulo 2: Carga de Datos":
     st.header("Carga tu archivo")
     archivo = st.file_uploader("Sube BankMarketing.csv", type=['csv'])
     
@@ -77,7 +77,7 @@ elif opcion == "Carga de Datos":
         st.success("Dataset cargado")
 
 # --- MÓDULO 3: EDA ---
-elif opcion == "Análisis EDA":
+elif opcion == "Modulo 3: Análisis EDA":
     if 'df' in st.session_state:
         df = st.session_state['df']
         analyzer = DataAnalyzer(df) # Instanciamos la clase POO
