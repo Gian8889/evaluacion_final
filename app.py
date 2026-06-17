@@ -55,6 +55,8 @@ if opcion == "Home":
     relacionados con gestiones de marketing previas y actuales (duración del contacto, 
     número de llamadas, resultados de campañas anteriores).
     """)
+
+    st.divider() # Línea divisoria estética
     
     st.write("### 🛠️ Tecnologías utilizadas")
     st.markdown("""
