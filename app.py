@@ -25,13 +25,43 @@ opcion = st.sidebar.selectbox("Selecciona un módulo:", ["Home", "Carga de Datos
 
 # --- MÓDULO 1: HOME ---
 if opcion == "Home":
-    st.title("Proyecto: BankMarketing")
-    st.write("Bienvenido. Este es el proyecto de Especialización.")
+    st.title("📊 Proyecto: Análisis de Campaña BankMarketing")
     
-    # Widget adicional en Home como pediste
-    seleccion_rapida = st.selectbox("Ir a:", ["Home", "Carga de Datos", "Análisis EDA"])
-    if seleccion_rapida != "Home":
-        st.info(f"Selecciona '{seleccion_rapida}' en la barra lateral izquierda.")
+    st.write("### Objetivo del Análisis")
+    st.write("""
+    Este proyecto tiene como finalidad realizar un Análisis Exploratorio de Datos (EDA) 
+    sobre el dataset BankMarketing, con el objetivo de identificar los factores 
+    clave que influyen en la aceptación de las campañas de marketing financiero.
+    """)
+    
+    st.divider() # Línea divisoria estética
+    
+    st.write("### 👤 Datos del Autor")
+    # Usamos columnas para presentar los datos de forma ordenada
+    col_a, col_b = st.columns(2)
+    with col_a:
+        st.write("**Nombre completo:** [Tu Nombre Aquí]")
+        st.write("**Curso / Especialización:** Especialización en Python for Analytics")
+    with col_b:
+        st.write("**Año:** 2026")
+    
+    st.divider()
+    
+    st.write("### ℹ️ Breve explicación del dataset")
+    st.write("""
+    El dataset contiene información sobre clientes de una institución financiera. 
+    Incluye variables demográficas (edad, educación, estado civil) y datos 
+    relacionados con gestiones de marketing previas y actuales (duración del contacto, 
+    número de llamadas, resultados de campañas anteriores).
+    """)
+    
+    st.write("### 🛠️ Tecnologías utilizadas")
+    st.markdown("""
+    * **Lenguaje:** Python
+    * **Manipulación de datos:** Pandas, NumPy
+    * **Visualización:** Matplotlib, Seaborn
+    * **Interfaz interactiva:** Streamlit
+    """)
 
 # --- MÓDULO 2: CARGA ---
 elif opcion == "Carga de Datos":
