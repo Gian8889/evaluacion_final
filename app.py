@@ -40,7 +40,7 @@ if opcion == "Home":
     # Usamos columnas para presentar los datos de forma ordenada
     col_a, col_b = st.columns(2)
     with col_a:
-        st.write("**Nombre completo:** "Jorge Huaman Calderon")
+        st.write("**Nombre completo:** Jorge Huaman Calderon")
         st.write("**Curso / Especialización:** Especialización en Python for Analytics")
     with col_b:
         st.write("**Año:** 2026")
