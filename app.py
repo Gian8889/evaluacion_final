@@ -27,7 +27,7 @@ opcion = st.sidebar.selectbox("Selecciona un módulo:", ["Home", "Carga de Datos
 if opcion == "Home":
     st.title("📊 Proyecto: Análisis de Campaña BankMarketing")
     
-    st.write("### Objetivo del Análisis")
+    st.write("### 🎯 Objetivo del Análisis")
     st.write("""
     Este proyecto tiene como finalidad realizar un Análisis Exploratorio de Datos (EDA) 
     sobre el dataset BankMarketing, con el objetivo de identificar los factores 
