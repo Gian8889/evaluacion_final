@@ -1,7 +1,7 @@
 # evaluacion_final
 
 • Descripción del proyecto 
-Este proyecto se basa en cargar el archivo
+El presente trabajo final tiene como objetivo realizar un análisis exploratorio de datos (EDA) a partir del caso de estudio "Bank Marketing". Para ello, se ha desarrollado una aplicación mediante el lenguaje de programación Python, utilizando Streamlit como interfaz principal. A través de este entorno, se implementan diversos métodos de análisis estadístico y procesamiento de tablas, que incluyen la limpieza de datos y la generación de visualizaciones dinámicas. Para el desarrollo del proyecto, se han integrado herramientas especializadas como Pandas, para la manipulación eficiente de la estructura de datos, y Matplotlib (o Seaborn), para el modelado gráfico. En conjunto, estas tecnologías permiten transformar el archivo BankMarketing.csv en una interfaz interactiva que facilita la exploración detallada y la toma de decisiones basada en datos.
 
 • Capturas de la app
 <img width="1891" height="887" alt="image" src="https://github.com/user-attachments/assets/7dbfbc1b-3cc0-4f8b-8684-da4d12af61d8" />
