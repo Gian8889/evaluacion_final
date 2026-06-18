@@ -26,6 +26,16 @@ El presente trabajo final tiene como objetivo realizar un análisis exploratorio
 
 
 • Instrucciones de ejecución
+Se ha implementado la clase DataAnalyzer, diseñada como un contenedor modular para el procesamiento y análisis de datos. 
+Esta clase encapsula seis métodos especializados que automatizan las tareas fundamentales del flujo de trabajo de análisis exploratorio (EDA):
+
+1.info_general: Proporciona un diagnóstico rápido de la estructura del dataset, incluyendo tipos de datos y conteo de valores nulos.
+2.clasificar_variables: Identifica y separa automáticamente las variables numéricas de las categóricas.
+3.estadisticas: Genera un resumen estadístico descriptivo completo.
+4.plot_histograma: Automatiza la visualización de distribuciones mediante histogramas.
+5.filtrar_por_rango: Permite la segmentación dinámica de datos según rangos definidos.
+6.plot_crosstab: Facilita el análisis bivariado mediante la creación y graficación de tablas cruzadas.»
+
 instalar las siguientes librerias
 streamlit
 pandas
