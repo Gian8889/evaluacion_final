@@ -87,21 +87,77 @@ elif opcion == "Modulo 3: Análisis EDA":
         df = st.session_state['df']
         analyzer = DataAnalyzer(df) # Instanciamos la clase POO
         
-        # Uso de TABS y COLUMNS
-        tab1, tab2 = st.tabs(["Estadísticas", "Visualización"])
+class DataAnalyzer:
+    def __init__(self, df):
+        self.df = df
+
+    def info_general(self):
+        return pd.DataFrame({
+            'Tipo de dato': self.df.dtypes,
+            'No nulos': self.df.count(),
+            'Nulos': self.df.isnull().sum()
+        })
+
+    def clasificar_variables(self):
+        num = self.df.select_dtypes(include=['int64', 'float64']).columns.tolist()
+        cat = self.df.select_dtypes(include=['object', 'category']).columns.tolist()
+        return num, cat
+
+    def estadisticas(self):
+        return self.df.describe()
+
+    def plot_histograma(self, col):
+        fig, ax = plt.subplots()
+        sns.histplot(self.df[col].dropna(), kde=True, ax=ax)
+        return fig
+analyzer = DataAnalyzer(df)
+        
+        # Estructura de pestañas para organizar los 10 ítems
+        tab1, tab2, tab3, tab4, tab5 = st.tabs(["Info/Variables", "Estadística/Nulos", "Distribución", "Bivariado", "Insights"])
         
         with tab1:
-            st.write(analyzer.estadisticas())
-            
+            st.header("Ítem 1: Información General")
+            st.dataframe(analyzer.info_general())
+            st.header("Ítem 2: Clasificación")
+            num, cat = analyzer.clasificar_variables()
+            c1, c2 = st.columns(2)
+            c1.write(f"**Numéricas ({len(num)}):**"); c1.write(num)
+            c2.write(f"**Categóricas ({len(cat)}):**"); c2.write(cat)
+
         with tab2:
-            col1, col2 = st.columns(2)
-            with col1:
-                # Widgets: selectbox y slider
-                var = st.selectbox("Elige variable:", df.columns)
-                rango = st.slider("Ajuste", 0, 100)
-            with col2:
-                # Widget: checkbox
-                if st.checkbox("Mostrar gráfico"):
-                    st.line_chart(df[var] if var in df.select_dtypes('number') else None)
-    else:
-        st.warning("Primero carga el archivo.")
+            st.header("Ítem 3: Estadísticas Descriptivas")
+            st.write(analyzer.estadisticas())
+            st.header("Ítem 4: Valores Faltantes")
+            st.bar_chart(df.isnull().sum())
+            st.write("Discusión: Los valores faltantes se analizan para determinar si es necesario imputar datos o eliminar registros.")
+
+        with tab3:
+            st.header("Ítem 5: Distribución Numérica")
+            var_num = st.selectbox("Selecciona variable:", df.select_dtypes('number').columns)
+            if st.checkbox("Ver Histograma"):
+                st.pyplot(analyzer.plot_histograma(var_num))
+            st.header("Ítem 6: Análisis Categórico")
+            var_cat = st.selectbox("Selecciona categórica:", df.select_dtypes('object').columns)
+            st.bar_chart(df[var_cat].value_counts())
+
+        with tab4:
+            st.header("Ítems 7 y 8: Análisis Bivariado")
+            col_x = st.selectbox("Eje X (Categoría):", df.select_dtypes('object').columns)
+            col_y = st.selectbox("Eje Y (Numérica):", df.select_dtypes('number').columns)
+            fig, ax = plt.subplots()
+            sns.boxplot(data=df, x=col_x, y=col_y, ax=ax)
+            st.pyplot(fig)
+
+        with tab5:
+            st.header("Ítem 9: Análisis Dinámico")
+            cols_sel = st.multiselect("Seleccionar columnas para correlación:", df.select_dtypes('number').columns)
+            if cols_sel: st.write(df[cols_sel].corr())
+            
+            st.header("Ítem 10: Hallazgos clave")
+            st.markdown("""
+            * **Insight 1:** La edad de los clientes influye en...
+            * **Insight 2:** La duración de la llamada tiene una correlación de...
+            * **Insight 3:** Los clientes con educación universitaria tienden a...
+            * **Insight 4:** La variable 'contact' muestra una preferencia por...
+            * **Insight 5:** Recomendación estratégica para el negocio.
+            """)
