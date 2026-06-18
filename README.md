@@ -1,6 +1,8 @@
 # evaluacion_final
+
 • Descripción del proyecto 
 Este proyecto se basa en cargar el archivo
+
 • Capturas de la app
 <img width="1891" height="887" alt="image" src="https://github.com/user-attachments/assets/7dbfbc1b-3cc0-4f8b-8684-da4d12af61d8" />
 <img width="1868" height="664" alt="image" src="https://github.com/user-attachments/assets/c2bcc6aa-488a-4ea7-a0ba-712bd052220b" />
@@ -24,4 +26,8 @@ Este proyecto se basa en cargar el archivo
 
 
 • Instrucciones de ejecución 
+
+
 • Links relevantes 
+https://github.com/Gian8889/evaluacion_final
+https://evaluacionfinal.streamlit.app/
