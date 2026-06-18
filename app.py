@@ -74,7 +74,9 @@ elif opcion == "Modulo 2: Carga de Datos":
     if archivo:
         df = pd.read_csv(archivo, sep=';')
         st.session_state['df'] = df # Guardamos el df para toda la sesión
-        st.success("Dataset cargado")
+        st.success("Dataset cargado correctamente")
+        st.write(f"### Dimensiones del dataset")
+        st.write(f"El dataset tiene **{df.shape[0]} filas** y **{df.shape[1]} columnas**.")
 
 # --- MÓDULO 3: EDA ---
 elif opcion == "Modulo 3: Análisis EDA":
