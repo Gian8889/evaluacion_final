@@ -68,7 +68,7 @@ if opcion == "Modulo 1: Home":
 
 # --- MÓDULO 2: CARGA ---
 elif opcion == "Modulo 2: Carga de Datos":
-    st.header("Carga tu archivo")
+    st.header("📤 Carga tu archivo")
     archivo = st.file_uploader("Sube BankMarketing.csv", type=['csv'])
     
     if archivo:
