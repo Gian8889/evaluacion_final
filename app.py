@@ -32,13 +32,17 @@ class DataAnalyzer:
         return self.df[(self.df[col] >= min_val) & (self.df[col] <= max_val)]
 
     def plot_crosstab(self, col1, col2):
-        # Creamos una tabla cruzada
-        ct = pd.crosstab(self.df[col1], self.df[col2])
+        # Normalizamos por índice para ver proporciones (porcentajes)
+        ct = pd.crosstab(self.df[col1], self.df[col2], normalize='index')
+        
         # Graficamos
         fig, ax = plt.subplots(figsize=(10, 6))
-        ct.plot(kind='bar', stacked=True, ax=ax)
+        ct.plot(kind='bar', stacked=True, ax=ax, colormap='viridis')
+        
+        plt.title(f'Relación entre {col1} y {col2} (Proporcional)')
+        plt.ylabel('Proporción (%)')
         plt.xticks(rotation=45, ha='right')
-        plt.title(f'Relación entre {col1} y {col2}')
+        plt.tight_layout()
         return fig
 
 # --- INTERFAZ PRINCIPAL ---
@@ -176,7 +180,8 @@ elif opcion == "Modulo 3: Análisis EDA":
                 col1 = st.selectbox("Variable 1:", df.select_dtypes('object').columns)
                 col2 = st.selectbox("Variable 2:", df.select_dtypes('object').columns)
                 # Usamos el nuevo método
-                st.pyplot(analyzer.plot_crosstab(col1, col2))
+                fig = analyzer.plot_crosstab(col1, col2)
+                st.pyplot(fig)
 
         with tab5:
             st.header("Ítem 9: Análisis Dinámico")
