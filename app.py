@@ -31,6 +31,16 @@ class DataAnalyzer:
         # Filtra el df basado en un rango (para cumplir con el widget slider)
         return self.df[(self.df[col] >= min_val) & (self.df[col] <= max_val)]
 
+    def plot_crosstab(self, col1, col2):
+        # Creamos una tabla cruzada
+        ct = pd.crosstab(self.df[col1], self.df[col2])
+        # Graficamos
+        fig, ax = plt.subplots(figsize=(10, 6))
+        ct.plot(kind='bar', stacked=True, ax=ax)
+        plt.xticks(rotation=45, ha='right')
+        plt.title(f'Relación entre {col1} y {col2}')
+        return fig
+
 # --- INTERFAZ PRINCIPAL ---
 st.set_page_config(page_title="App Bancaria", layout="wide")
 
@@ -135,12 +145,20 @@ elif opcion == "Modulo 3: Análisis EDA":
 
         with tab4:
             st.header("Ítems 7 y 8: Análisis Bivariado")
-            col_x = st.selectbox("Eje X (Categoría):", df.select_dtypes('object').columns)
-            col_y = st.selectbox("Eje Y (Numérica):", df.select_dtypes('number').columns)
-            fig, ax = plt.subplots(figsize=(10, 5))
-            sns.boxplot(data=df, x=col_x, y=col_y, ax=ax)
-            plt.xticks(rotation=45, ha='right')
-            st.pyplot(fig)
+            tipo_analisis = st.radio("¿Qué tipo de análisis deseas hacer?", ["Numérico (Boxplot)", "Categórico (Barras Apiladas)"])
+            
+            if tipo_analisis == "Numérico (Boxplot)":
+                col_x = st.selectbox("Eje X (Categoría):", df.select_dtypes('object').columns)
+                col_y = st.selectbox("Eje Y (Numérica):", df.select_dtypes('number').columns)
+                fig, ax = plt.subplots(figsize=(10, 5))
+                sns.boxplot(data=df, x=col_x, y=col_y, ax=ax)
+                plt.xticks(rotation=45, ha='right')
+                st.pyplot(fig)
+            else:
+                col1 = st.selectbox("Variable 1:", df.select_dtypes('object').columns)
+                col2 = st.selectbox("Variable 2:", df.select_dtypes('object').columns)
+                # Usamos el nuevo método
+                st.pyplot(analyzer.plot_crosstab(col1, col2))
 
         with tab5:
             st.header("Ítem 9: Análisis Dinámico")
