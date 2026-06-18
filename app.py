@@ -26,7 +26,10 @@ class DataAnalyzer:
         fig, ax = plt.subplots()
         sns.histplot(self.df[col].dropna(), kde=True, ax=ax)
         return fig
-
+        
+    def filtrar_por_rango(self, col, min_val, max_val):
+        # Filtra el df basado en un rango (para cumplir con el widget slider)
+        return self.df[(self.df[col] >= min_val) & (self.df[col] <= max_val)]
 
 # --- INTERFAZ PRINCIPAL ---
 st.set_page_config(page_title="App Bancaria", layout="wide")
