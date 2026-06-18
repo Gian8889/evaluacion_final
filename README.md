@@ -25,8 +25,12 @@ El presente trabajo final tiene como objetivo realizar un análisis exploratorio
 <img width="1837" height="630" alt="image" src="https://github.com/user-attachments/assets/59fa9f56-3960-4784-8569-ed8cf38fc57d" />
 
 
-• Instrucciones de ejecución 
-
+• Instrucciones de ejecución
+instalar las siguientes librerias
+streamlit
+pandas
+seaborn
+matplotlib
 
 • Links relevantes 
 https://github.com/Gian8889/evaluacion_final
