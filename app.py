@@ -3,18 +3,30 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# --- DEFINICIÓN DE LA CLASE POO ---
 class DataAnalyzer:
     def __init__(self, df):
         self.df = df
-    
+
+    def info_general(self):
+        return pd.DataFrame({
+            'Tipo de dato': self.df.dtypes,
+            'No nulos': self.df.count(),
+            'Nulos': self.df.isnull().sum()
+        })
+
+    def clasificar_variables(self):
+        num = self.df.select_dtypes(include=['int64', 'float64']).columns.tolist()
+        cat = self.df.select_dtypes(include=['object', 'category']).columns.tolist()
+        return num, cat
+
     def estadisticas(self):
         return self.df.describe()
-    
-    def obtener_columnas(self):
-        nums = self.df.select_dtypes(include=['number']).columns.tolist()
-        cats = self.df.select_dtypes(include=['object']).columns.tolist()
-        return nums, cats
+
+    def plot_histograma(self, col):
+        fig, ax = plt.subplots()
+        sns.histplot(self.df[col].dropna(), kde=True, ax=ax)
+        return fig
+
 
 # --- INTERFAZ PRINCIPAL ---
 st.set_page_config(page_title="App Bancaria", layout="wide")
@@ -82,37 +94,13 @@ elif opcion == "Modulo 2: Carga de Datos":
         st.dataframe(df.head())
 
 # --- MÓDULO 3: EDA ---
+# --- MÓDULO 3: EDA ---
 elif opcion == "Modulo 3: Análisis EDA":
     if 'df' in st.session_state:
         df = st.session_state['df']
-        analyzer = DataAnalyzer(df) # Instanciamos la clase POO
+        analyzer = DataAnalyzer(df) 
         
-class DataAnalyzer:
-    def __init__(self, df):
-        self.df = df
-
-    def info_general(self):
-        return pd.DataFrame({
-            'Tipo de dato': self.df.dtypes,
-            'No nulos': self.df.count(),
-            'Nulos': self.df.isnull().sum()
-        })
-
-    def clasificar_variables(self):
-        num = self.df.select_dtypes(include=['int64', 'float64']).columns.tolist()
-        cat = self.df.select_dtypes(include=['object', 'category']).columns.tolist()
-        return num, cat
-
-    def estadisticas(self):
-        return self.df.describe()
-
-    def plot_histograma(self, col):
-        fig, ax = plt.subplots()
-        sns.histplot(self.df[col].dropna(), kde=True, ax=ax)
-        return fig
-analyzer = DataAnalyzer(df)
-        
-        # Estructura de pestañas para organizar los 10 ítems
+        # Corrección: Asegúrate de que esta línea tenga exactamente 8 espacios
         tab1, tab2, tab3, tab4, tab5 = st.tabs(["Info/Variables", "Estadística/Nulos", "Distribución", "Bivariado", "Insights"])
         
         with tab1:
@@ -121,8 +109,10 @@ analyzer = DataAnalyzer(df)
             st.header("Ítem 2: Clasificación")
             num, cat = analyzer.clasificar_variables()
             c1, c2 = st.columns(2)
-            c1.write(f"**Numéricas ({len(num)}):**"); c1.write(num)
-            c2.write(f"**Categóricas ({len(cat)}):**"); c2.write(cat)
+            c1.write(f"**Numéricas ({len(num)}):**")
+            c1.write(num)
+            c2.write(f"**Categóricas ({len(cat)}):**")
+            c2.write(cat)
 
         with tab2:
             st.header("Ítem 3: Estadísticas Descriptivas")
@@ -151,7 +141,8 @@ analyzer = DataAnalyzer(df)
         with tab5:
             st.header("Ítem 9: Análisis Dinámico")
             cols_sel = st.multiselect("Seleccionar columnas para correlación:", df.select_dtypes('number').columns)
-            if cols_sel: st.write(df[cols_sel].corr())
+            if cols_sel: 
+                st.write(df[cols_sel].corr())
             
             st.header("Ítem 10: Hallazgos clave")
             st.markdown("""
@@ -161,3 +152,5 @@ analyzer = DataAnalyzer(df)
             * **Insight 4:** La variable 'contact' muestra una preferencia por...
             * **Insight 5:** Recomendación estratégica para el negocio.
             """)
+    else:
+        st.warning("Primero carga el archivo en el Módulo 2.")
