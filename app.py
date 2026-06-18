@@ -134,7 +134,7 @@ elif opcion == "Modulo 3: Análisis EDA":
             st.header("Ítems 7 y 8: Análisis Bivariado")
             col_x = st.selectbox("Eje X (Categoría):", df.select_dtypes('object').columns)
             col_y = st.selectbox("Eje Y (Numérica):", df.select_dtypes('number').columns)
-            fig, ax = plt.subplots()
+            fig, ax = plt.subplots(figsize=(10, 5))
             sns.boxplot(data=df, x=col_x, y=col_y, ax=ax)
             st.pyplot(fig)
 
