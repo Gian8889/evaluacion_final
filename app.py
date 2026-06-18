@@ -144,9 +144,22 @@ elif opcion == "Modulo 3: Análisis EDA":
 
         with tab5:
             st.header("Ítem 9: Análisis Dinámico")
-            cols_sel = st.multiselect("Seleccionar columnas para correlación:", df.select_dtypes('number').columns)
-            if cols_sel: 
-                st.write(df[cols_sel].corr())
+            
+            # Usamos el slider para filtrar datos por una variable numérica
+            var_slider = st.selectbox("Variable para filtrar con slider:", df.select_dtypes('number').columns)
+            min_v = int(df[var_slider].min())
+            max_v = int(df[var_slider].max())
+            rango = st.slider("Selecciona rango:", min_v, max_v, (min_v, max_v))
+            
+            # Aplicamos el filtro usando la POO
+            df_filtrado = analyzer.filtrar_por_rango(var_slider, rango[0], rango[1])
+            st.write(f"Filas encontradas: {len(df_filtrado)}")
+            st.dataframe(df_filtrado.head())
+            
+            # Correlación
+            cols_sel = st.multiselect("Columnas para correlación:", df.select_dtypes('number').columns)
+            if cols_sel:
+                st.write(df_filtrado[cols_sel].corr())
             
             st.header("Ítem 10: Hallazgos clave")
             st.markdown("""
