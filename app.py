@@ -23,7 +23,7 @@ class DataAnalyzer:
         return self.df.describe()
 
     def plot_histograma(self, col):
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(6, 4))
         sns.histplot(self.df[col].dropna(), kde=True, ax=ax)
         return fig
         
