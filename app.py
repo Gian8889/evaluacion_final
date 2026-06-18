@@ -37,10 +37,10 @@ class DataAnalyzer:
         
         # Graficamos
         fig, ax = plt.subplots(figsize=(10, 6))
-        ct.plot(kind='bar', stacked=True, ax=ax, colormap='viridis')
+        ct.plot(kind='bar', stacked=False, ax=ax, colormap='viridis')
         
-        plt.title(f'Relación entre {col1} y {col2} (Proporcional)')
-        plt.ylabel('Proporción (%)')
+        plt.title(f'Comparativa de {col2} por {col1}')
+        plt.ylabel('Proporción')
         plt.xticks(rotation=45, ha='right')
         plt.tight_layout()
         return fig
