@@ -135,20 +135,20 @@ elif opcion == "Modulo 3: Análisis EDA":
             st.write("Discusión: Los valores faltantes se analizan para determinar si es necesario imputar datos o eliminar registros.")
 
         with tab3:
-    # --- Ítem 5: Distribución Numérica ---
+            # --- Ítem 5: Distribución Numérica ---
             st.header("Ítem 5: Distribución Numérica")
             var_num = st.selectbox("Selecciona variable:", df.select_dtypes('number').columns)
             if st.checkbox("Ver Histograma"):
                 st.pyplot(analyzer.plot_histograma(var_num))
     
-    # --- Ítem 6: Análisis Categórico ---
+            # --- Ítem 6: Análisis Categórico ---
             st.header("Ítem 6: Análisis de variables categóricas")
             var_cat = st.selectbox("Selecciona categórica:", df.select_dtypes('object').columns)
     
-    # Mostrar conteos y proporciones
+            # Mostrar conteos y proporciones
             c1, c2 = st.columns(2)
     
-    # Cálculo de proporciones
+            # Cálculo de proporciones
             conteo = df[var_cat].value_counts()
             proporcion = df[var_cat].value_counts(normalize=True)
             resumen = pd.DataFrame({'Conteo': conteo, 'Proporción': proporcion})
