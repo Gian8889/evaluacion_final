@@ -136,6 +136,7 @@ elif opcion == "Modulo 3: Análisis EDA":
             col_y = st.selectbox("Eje Y (Numérica):", df.select_dtypes('number').columns)
             fig, ax = plt.subplots(figsize=(10, 5))
             sns.boxplot(data=df, x=col_x, y=col_y, ax=ax)
+            plt.xticks(rotation=45, ha='right')
             st.pyplot(fig)
 
         with tab5:
