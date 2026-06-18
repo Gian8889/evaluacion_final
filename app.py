@@ -78,6 +78,9 @@ elif opcion == "Modulo 2: Carga de Datos":
         st.write(f"### Dimensiones del dataset")
         st.write(f"El dataset tiene **{df.shape[0]} filas** y **{df.shape[1]} columnas**.")
 
+        st.write("### Vista previa (primeras 5 filas)")
+        st.dataframe(df.head())
+
 # --- MÓDULO 3: EDA ---
 elif opcion == "Modulo 3: Análisis EDA":
     if 'df' in st.session_state:
