@@ -216,8 +216,8 @@ elif opcion == "Modulo 3: Análisis EDA":
             st.header("Ítem 10: Hallazgos clave")
             st.markdown("""
             * **Insight 1:** Existe una relación directa y positiva entre la duración de la llamada y la aceptación de la campaña (y='yes').
-            * **Insight 2:** La duración de la llamada tiene una correlación de...
-            * **Insight 3:** Los clientes con educación universitaria tienden a...
+            * **Insight 2:** el análisis detallado de la tabla revela que los perfiles de administrativos (1,352), técnicos (730), operarios (638) y jubilados (434) lideran en volumen absoluto de aceptaciones, posicionándose como los grupos más relevantes para la estrategia comercial.
+            * **Insight 3:** Los clientes con educación universitaria tienden a tener una respuesta positiva a las campanas de marketing
             * **Insight 4:** La variable 'contact' muestra una preferencia por...
             * **Insight 5:** Recomendación estratégica para el negocio.
             """)
