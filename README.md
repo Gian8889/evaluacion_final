@@ -17,12 +17,7 @@ El presente trabajo final tiene como objetivo realizar un análisis exploratorio
 <img width="1841" height="451" alt="image" src="https://github.com/user-attachments/assets/6e91ee99-e024-49cc-b2e8-18e67e202283" />
 <img width="1514" height="857" alt="image" src="https://github.com/user-attachments/assets/37a35c75-c154-48cc-ba93-6c8c15006d51" />
 <img width="1857" height="425" alt="image" src="https://github.com/user-attachments/assets/0fb07b67-a3fa-4086-a01f-e741cc7e4518" />
-<img width="1494" height="897" alt="image" src="https://github.com/user-attachments/assets/63e3c773-b06f-422f-9215-6b35a9315e06" />
-<img width="1813" height="887" alt="image" src="https://github.com/user-attachments/assets/c49c191f-6a8a-4383-8f12-972b15e80ccf" />
-<img width="1529" height="797" alt="image" src="https://github.com/user-attachments/assets/96afe621-50a3-4bce-82b5-0aa712ed9c50" />
-<img width="1869" height="416" alt="image" src="https://github.com/user-attachments/assets/1f0fbb29-330d-4d3f-be84-c45b48be5086" />
-<img width="1490" height="911" alt="image" src="https://github.com/user-attachments/assets/c52cbc58-2ae4-4eaf-99eb-b70aac75b86e" />
-<img width="1837" height="630" alt="image" src="https://github.com/user-attachments/assets/59fa9f56-3960-4784-8569-ed8cf38fc57d" />
+
 
 
 • Instrucciones de ejecución
