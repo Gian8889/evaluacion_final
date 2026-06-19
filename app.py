@@ -191,8 +191,7 @@ elif opcion == "Modulo 3: Análisis EDA":
                 conteo = pd.crosstab(df[col1], df[col2])
                 st.dataframe(conteo.style.highlight_max(axis=0))
                 
-                # 3. Insight automático (opcional pero muy recomendado)
-                st.info(f"💡 **Tip:** Observa en la tabla qué categoría de '{col1}' tiene la mayor cantidad de 'yes' en '{col2}'.")
+                
 
         with tab5:
             st.header("Ítem 9: Análisis Dinámico")
