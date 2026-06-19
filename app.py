@@ -167,7 +167,7 @@ elif opcion == "Modulo 3: Análisis EDA":
 
         with tab4:
             st.header("Ítems 7 y 8: Análisis Bivariado")
-            tipo_analisis = st.radio("¿Qué tipo de análisis deseas hacer?", ["Numérico (Boxplot)", "Categórico (Barras Apiladas)"])
+            tipo_analisis = st.radio("¿Qué tipo de análisis deseas hacer?", ["Numérico (Boxplot)", "Categórico (Barras Agrupadas)"])
             
             if tipo_analisis == "Numérico (Boxplot)":
                 col_x = st.selectbox("Eje X (Categoría):", df.select_dtypes('object').columns)
@@ -175,13 +175,24 @@ elif opcion == "Modulo 3: Análisis EDA":
                 fig, ax = plt.subplots(figsize=(10, 5))
                 sns.boxplot(data=df, x=col_x, y=col_y, ax=ax)
                 plt.xticks(rotation=45, ha='right')
-                st.pyplot(fig)
+                st.pyplot(fig, clear_figure=True)
+            
             else:
-                col1 = st.selectbox("Variable 1:", df.select_dtypes('object').columns)
-                col2 = st.selectbox("Variable 2:", df.select_dtypes('object').columns)
-                # Usamos el nuevo método
+                col1 = st.selectbox("Variable 1 (eje X):", df.select_dtypes('object').columns)
+                col2 = st.selectbox("Variable 2 (color):", df.select_dtypes('object').columns)
+                
+                # 1. Gráfico de proporciones (para ver tasas de éxito)
+                st.subheader("Análisis Proporcional")
                 fig = analyzer.plot_crosstab(col1, col2)
-                st.pyplot(fig)
+                st.pyplot(fig, clear_figure=True)
+                
+                # 2. Tabla de conteos (para ver cantidades reales)
+                st.subheader("Volumen de Clientes (Conteos)")
+                conteo = pd.crosstab(df[col1], df[col2])
+                st.dataframe(conteo.style.highlight_max(axis=0))
+                
+                # 3. Insight automático (opcional pero muy recomendado)
+                st.info(f"💡 **Tip:** Observa en la tabla qué categoría de '{col1}' tiene la mayor cantidad de 'yes' en '{col2}'.")
 
         with tab5:
             st.header("Ítem 9: Análisis Dinámico")
