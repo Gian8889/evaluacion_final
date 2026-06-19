@@ -17,6 +17,14 @@ El presente trabajo final tiene como objetivo realizar un análisis exploratorio
 <img width="1841" height="451" alt="image" src="https://github.com/user-attachments/assets/6e91ee99-e024-49cc-b2e8-18e67e202283" />
 <img width="1514" height="857" alt="image" src="https://github.com/user-attachments/assets/37a35c75-c154-48cc-ba93-6c8c15006d51" />
 <img width="1857" height="425" alt="image" src="https://github.com/user-attachments/assets/0fb07b67-a3fa-4086-a01f-e741cc7e4518" />
+<img width="1848" height="894" alt="image" src="https://github.com/user-attachments/assets/9578d420-619e-44d2-a328-55ea022a1991" />
+<img width="1488" height="422" alt="image" src="https://github.com/user-attachments/assets/ac73beab-1496-4696-9870-1fbb33f2c344" />
+<img width="1499" height="510" alt="image" src="https://github.com/user-attachments/assets/72c3a15f-cdfb-4497-b34e-7b4e7cfc1a06" />
+<img width="1502" height="809" alt="image" src="https://github.com/user-attachments/assets/d244e495-e064-4421-88b9-bca64f77950f" />
+<img width="1478" height="281" alt="image" src="https://github.com/user-attachments/assets/7675e2b3-0695-4435-96c2-fbeb36a12c87" />
+
+
+
 
 
 
