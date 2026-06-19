@@ -218,7 +218,7 @@ elif opcion == "Modulo 3: Análisis EDA":
             * **Insight 2:** Los perfiles de administrativos (1,352), técnicos (730), operarios (638) y jubilados (434) lideran en volumen absoluto de aceptaciones, posicionándose como los grupos más relevantes para la estrategia comercial.
             * **Insight 3:** Los clientes con educación universitaria tienden a tener una respuesta positiva a las campanas de marketing
             * **Insight 4:** El hecho de tener un crédito vigente (loan) no es un factor determinante para predecir si el cliente aceptará una nueva oferta de marketing.
-            * **Insight 5:** Recomendación estratégica para el negocio.
+            * **Insight 5:** Tras el análisis bivariado realizado, se determina que la variable housing no es un factor determinante ni influyente en la decisión de compra o aceptación del cliente.
             """)
     else:
         st.warning("Primero carga el archivo en el Módulo 2.")
